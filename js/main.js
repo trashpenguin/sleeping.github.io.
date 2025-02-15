@@ -1,51 +1,23 @@
-// Ensure localStorage values exist before retrieving them
-if (!localStorage.getItem("storageToken")) {
-  localStorage.setItem("storageToken", "my_secure_token");
-}
-if (!localStorage.getItem("storageSession")) {
-  localStorage.setItem("storageSession", "session_123");
-}
-if (!localStorage.getItem("storageExpiresAt")) {
-  localStorage.setItem("storageExpiresAt", Date.now() + 3600000); // 1 hour from now
-}
+document.addEventListener("DOMContentLoaded", () => {
+  const title = document.querySelector('.title');
 
-// Retrieve values from localStorage
-const storageToken = localStorage.getItem("storageToken");
-const storageSession = localStorage.getItem("storageSession");
-const storageExpiresAt = localStorage.getItem("storageExpiresAt");
+  // ✅ Ensure the element exists before modifying it
+  if (!title) {
+    console.error("Error: '.title' element not found!");
+    return;
+  }
 
-console.log("Token:", storageToken);
-console.log("Session:", storageSession);
-console.log("Expires At:", storageExpiresAt);
+  const text = "I Have Something".split('');
 
-window.onload = () => {
-  setTimeout(() => {
-    document.body.classList.remove("not-loaded");
+  for (let index = 0; index < text.length; index++) {
+    title.innerHTML += text[index] !== ' ' 
+      ? `<span>${text[index]}</span>` 
+      : `<span style='margin-right: 10px;'></span>`; // Smaller space for mobile
+  }
 
-    // Ensure the title element exists before modifying it
-    const titleElement = document.getElementById('title');
-    if (!titleElement) {
-      console.error("Error: Title element (#title) not found in the HTML.");
-      return;
-    }
-
-    // Animated text effect
-    const titles = "Happy Valentines Day Wave 31".split('');
-    let index = 0;
-
-    function appendTitle() {
-      if (index < titles.length) {
-        titleElement.innerHTML += titles[index] === ' ' 
-          ? "<span style='margin-right: 10px'></span>" // Add space
-          : `<span>${titles[index]}</span>`; // Add letter
-          
-        console.log(`Appending: ${titles[index]}`); // Debugging log
-
-        index++;
-        setTimeout(appendTitle, 300); // Delay for animation effect
-      }
-    }
-
-    appendTitle();
-  }, 1000);
-};
+  const textElements = document.querySelectorAll('.title span');
+  textElements.forEach((element) => {
+    const randomDelay = Math.random() * 1.5; // Faster delay for mobile
+    element.style.animationDelay = `${randomDelay}s`;
+  });
+});
