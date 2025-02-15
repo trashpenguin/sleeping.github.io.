@@ -27,7 +27,7 @@ window.onload = () => {
       return;
     }
     // Animated text effect
-    const titles = "Happy Valentines Day Wave 31".split('');
+    const titles = "wuwuvyang ❤️".split('');
     let index = 0;
 
     function appendTitle() {
