@@ -1,9 +1,8 @@
-
-onload = () => {
-  const c = setTimeout(() => {
+window.onload = () => {
+  setTimeout(() => {
     document.body.classList.remove("not-loaded");
 
-    const titles = ( happy valentines day wave 31').split('')
+    const titles = ('Happy Valentines Day Wave 31').split('');
     const titleElement = document.getElementById('title');
     let index = 0;
 
@@ -11,12 +10,10 @@ onload = () => {
       if (index < titles.length) {
         titleElement.innerHTML += titles[index];
         index++;
-        setTimeout(appendTitle, 300); // 1000ms delay
+        setTimeout(appendTitle, 300); // Adds a letter every 300ms
       }
     }
 
     appendTitle();
-
-    clearTimeout(c);
   }, 1000);
 };
