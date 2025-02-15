@@ -18,22 +18,28 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
+      background-color: #f8f8f8;
+      text-align: center;
     }
 
     .flowers {
       display: flex;
-      flex-wrap: wrap; /* Ensure flowers adjust on smaller screens */
+      flex-wrap: wrap; /* Ensures flowers adjust on smaller screens */
       justify-content: center;
+      margin-top: 30px;
     }
 
     .flower {
       max-width: 100px; /* Adjust flower size for smaller screens */
+      margin: 10px;
     }
 
     .title {
-      text-align: center;
-      font-size: 1.5rem;
-      padding: 10px;
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #ff69b4;
+      padding: 15px;
+      margin-top: 20px;
     }
 
     /* ✅ Fix for Button Clickability */
@@ -47,10 +53,32 @@
       border-radius: 8px;
       text-decoration: none;
       transition: background 0.3s;
+      border: none;
+      cursor: pointer;
+      margin-top: 20px;
     }
 
     .btn:hover {
       background-color: #ff1493;
+    }
+
+    /* ✅ Smooth text animation */
+    #title span {
+      opacity: 0;
+      transform: translateY(10px);
+      display: inline-block;
+      animation: fadeInUp 0.5s forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -80,7 +108,7 @@
   <h1 class="title"><span id="title"></span></h1>
 
   <!-- Open Button (Optional) -->
-  <div style="text-align: center; margin-top: 20px;">
+  <div>
     <a href="index.html" class="btn">Back to Home</a>
   </div>
 
