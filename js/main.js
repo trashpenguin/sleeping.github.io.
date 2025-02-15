@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
   for (let index = 0; index < text.length; index++) {
     title.innerHTML += text[index] !== ' ' 
       ? `<span>${text[index]}</span>` 
-      : `<span style='margin-right: 10px;'></span>`; // Smaller space for mobile
+      : `<span style='margin-right: 10px;'></span>`; // Space for readability
   }
 
   const textElements = document.querySelectorAll('.title span');
