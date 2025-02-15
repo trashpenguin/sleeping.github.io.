@@ -12,7 +12,7 @@
   <title>FLOWERS</title>
 
   <style>
-    /* ✅ Mobile Fix: Ensure it looks good on small screens */
+    /* ✅ Mobile Optimization */
     body {
       overflow-x: hidden; /* Prevents horizontal scrolling */
       margin: 0;
@@ -113,36 +113,6 @@
   </div>
 
   <!-- ✅ Fix: Load JavaScript Properly -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(() => {
-        document.body.classList.remove("not-loaded");
-
-        const titleElement = document.getElementById("title");
-        if (!titleElement) {
-          console.error("Title element not found!");
-          return;
-        }
-
-        const text = "Happy Valentines Day 🌸".split('');
-        let index = 0;
-
-        function appendTitle() {
-          if (index < text.length) {
-            titleElement.innerHTML += text[index] === ' ' 
-              ? "<span style='margin-right: 10px'></span>" 
-              : `<span>${text[index]}</span>`;
-            index++;
-            setTimeout(appendTitle, 150); // ✅ Faster animation on mobile
-          }
-        }
-
-        appendTitle();
-      }, 500);
-    });
-  </script>
-
-  <!-- ✅ Fix: Ensure JavaScript is Loaded After Page -->
   <script src="js/main.js" defer></script>
 </body>
 </html>
